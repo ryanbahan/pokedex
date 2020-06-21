@@ -18,9 +18,9 @@ const CardContainer = () => {
 }
 
 const Main = styled.main`
-    border: solid 1px blue;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    margin: 0 15%;
 `
 
 export default CardContainer
