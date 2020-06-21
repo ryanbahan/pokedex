@@ -1,10 +1,16 @@
 import styled from 'styled-components'
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
+import Filter from '../filter/filter'
+import { getFilterItems } from '../../utils'
 import { SearchFilterContext } from '../../contexts/searchFilterContext'
+import { PokemonContext } from '../../contexts/pokemonContext'
 
 const SearchForm = () => {
     const SearchFilterStore = useContext(SearchFilterContext)
+    const PokemonStore = useContext(PokemonContext)
     const { searchField } = SearchFilterStore.state 
+
+    const { pokemon } = PokemonStore.state
 
     return (
         <Form>
@@ -15,8 +21,8 @@ const SearchForm = () => {
                 placeholder="Search by name..."
             />
             <FiltersContainer>
-                <Button type="button">Type ▼</Button>
-                <Button type="button">Weaknesses ▼</Button>
+                <Filter title={"Type"} items={getFilterItems(pokemon, "type")} />
+                <Filter title={"Weaknesses"} items={getFilterItems(pokemon, "weaknesses")} />
                 <Button type="button">Clear filters</Button>
             </FiltersContainer>
         </Form>

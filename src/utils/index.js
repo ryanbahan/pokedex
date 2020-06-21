@@ -12,6 +12,13 @@ export const filterPokemon = (searchField, filters, pokemon) => {
     return filteredByText
 }
 
+export const getFilterItems = (data, key) => {
+    return data.reduce((list, pokemon) => {
+        list = list.concat(pokemon[key])
+        return [...new Set(list)]
+    }, [])
+}
+
 const filterByText = (searchField, pokemon) => {
     let query = new RegExp(searchField, "gi")
 
