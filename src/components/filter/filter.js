@@ -3,74 +3,41 @@ import styled from 'styled-components'
 
 const Filter = ({ title, items }) => {
     const [ dropdown, toggleDropdown ] = useState(false)
-    console.log(items)
 
-    // toggleDropdown = (e) => {
-    //     this.setState({ dropdown: !this.state.dropdown });
-    // }
+    const renderListItems = (items) => {
+        return items.map(item => (
+            <DropdownItem key={item}>
+                <input
+                    type="checkbox"
+                    onClick={""}
+                    defaultChecked={""}
+                />
+                <p id={item}>{item}</p>
+            </DropdownItem>
+        ))
+    }
 
-    // closeModal = (e) => {
-    //     this.setState({ dropdown: false });
-    // }
+    const displayList = (items) => {
+        const listItems = renderListItems(items)
 
-    // checkFilteredItems = (selection) => {
-    //     const { filters } = this.context.state;
-
-    //     if (filters.find(item => item === selection)) {
-    //         return false;
-    //     } else {
-    //         return true;
-    //     }
-    // }
-
-    // updateForm = (selection) => {
-    //     this.context.update({ pageIndex: 1 });
-
-    //     const { filters } = this.context.state;
-    //     let updatedItems;
-
-    //     if (filters.find(item => item === selection)) {
-    //         updatedItems = filters.filter(item => item !== selection);
-    //     } else {
-    //         updatedItems = filters.concat([selection]);
-    //     }
-
-    //     this.context.update({ filters: [...updatedItems] })
-    // }
-
-    // getListItems = (items) => {
-    //     return items.map(item => (
-    //         <div key={item} style={{ display: "flex", alignItems: "baseline", padding: "0.5rem" }}>
-    //             <input
-    //                 type="checkbox"
-    //                 onClick={() => this.updateForm(item)}
-    //                 defaultChecked={this.checkFilteredItems(item)}
-    //             />
-    //             <p id={item}>{item}</p>
-    //         </div>
-    //     ));
-    // }
-
-    // displayList = (items) => {
-    //     const listItems = this.getListItems(items);
-
-    //     return (
-    //         <div className="filter-dropdown" style={dropdownStyles}>
-    //             {listItems}
-    //         </div>
-    //     );
-    // }
+        return (
+            <Dropdown>
+                {listItems} 
+            </Dropdown>
+        )
+    }
 
 
     return (
-        <div style={{ flexWrap: "wrap" }}>
+        <DropdownContainer>
             <Button
                 type="button"
-                onClick={""}
+                onClick={() => toggleDropdown(!dropdown)}
             >
                 {title + "▼"}
             </Button>
-        </div>
+            {dropdown && displayList(items)}
+        </DropdownContainer>
     )
 }
 
@@ -80,6 +47,25 @@ const Button = styled.button`
     cursor: pointer;
 `
 
-export default Filter;
+const DropdownContainer = styled.section`
+    flex-wrap: wrap;
+`
 
-// { this.state.dropdown && this.displayList(this.props.items) }
+const DropdownItem = styled.div`
+    display: flex;
+    align-items: baseline;
+    padding: 0.5rem;
+`
+
+const Dropdown = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    position: absolute;
+    background-color: #fff;
+    border: solid 0.5px rgba(0,0,0,0.25);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+`
+
+export default Filter
