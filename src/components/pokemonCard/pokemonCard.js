@@ -2,15 +2,11 @@ import styled from 'styled-components'
 import { arrayToString } from '../../utils'
 
 const PokemonCard = ({
-    height,
-    id,
     img,
-    multipliers,
     name,
     num,
     type,
     weaknesses,
-    weight,
 }) => {
     return (
         <Section>
@@ -25,7 +21,6 @@ const PokemonCard = ({
 
 const Section = styled.section`
     border: solid 1px black;
-    margin: 2.5%;
     display: flex;
     flex-direction: column;
     justify-content: center;

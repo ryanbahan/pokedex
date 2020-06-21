@@ -20,7 +20,7 @@ const CardContainer = () => {
 const Main = styled.main`
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    margin: 0 15%;
+    grid-gap: 20px;
 `
 
 export default CardContainer
