@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import styled from 'styled-components'
+import { fetchPokemon } from '../src/api'
 
 export default function Home() {
   return (
