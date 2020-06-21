@@ -1,20 +1,22 @@
 import styled from 'styled-components'
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { SearchFilterContext } from '../../contexts/searchFilterContext'
 
 const SearchForm = () => {
-    const [ state, setState ] = useState({text: ""})
+    const SearchFilterStore = useContext(SearchFilterContext)
+    const { searchField } = SearchFilterStore.state 
+
     return (
         <Form>
             <Input
                 type="text"
-                value={ state.text }
-                onChange={(e) => setState({text: e.target.value})}
-                id="searchText"
+                value={ searchField }
+                onChange={(e) => SearchFilterStore.update({ searchField: e.target.value })}
                 placeholder="Search by name..."
             />
             <FiltersContainer>
-                <Button type="button">Type</Button>
-                <Button type="button">Weaknesses</Button>
+                <Button type="button">Type ▼</Button>
+                <Button type="button">Weaknesses ▼</Button>
                 <Button type="button">Clear filters</Button>
             </FiltersContainer>
         </Form>
@@ -24,6 +26,7 @@ const SearchForm = () => {
 const Input = styled.input`
     font-size: 1.5rem;
     width: 50%;
+    min-width: 15rem;
 `
 
 const Button = styled.button`
@@ -37,6 +40,7 @@ const Form = styled.form`
     align-items: center;
     justify-content: space-between;
     margin: 2.5rem 0;
+    flex-wrap: wrap;
 `
 
 const FiltersContainer = styled.div`
