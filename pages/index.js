@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import styled from 'styled-components'
-import { fetchPokemon } from '../src/api'
+import CardContainer from '../src/components/cardContainer/cardContainer'
 
 export default function Home() {
   return (
@@ -9,10 +9,7 @@ export default function Home() {
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
-      <main>
-        <p>test</p>
-      </main>
+      <CardContainer />
     </div>
   )
 }
