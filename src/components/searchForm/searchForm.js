@@ -21,9 +21,9 @@ const SearchForm = () => {
                 placeholder="Search by name..."
             />
             <FiltersContainer>
-                <Filter title={"Type"} items={getFilterItems(pokemon, "type")} />
-                <Filter title={"Weaknesses"} items={getFilterItems(pokemon, "weaknesses")} />
-                <Button type="button">Clear filters</Button>
+                <Filter title={"type"} items={getFilterItems(pokemon, "type")} />
+                <Filter title={"weaknesses"} items={getFilterItems(pokemon, "weaknesses")} />
+                <Button type="button">clear filters</Button>
             </FiltersContainer>
         </Form>
     )

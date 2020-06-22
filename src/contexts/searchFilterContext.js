@@ -3,7 +3,7 @@ import { createContext, useState } from 'react'
 export const SearchFilterContext = createContext()
 
 const SearchFilterProvider = ({ children }) => {
-    const [state, setState] = useState({ searchField: "", filters: {Type: [], Weaknesses: []}})
+    const [state, setState] = useState({ searchField: "", filters: {type: [], weaknesses: []}})
 
     const updateText = (val) => {
         setState({ ...state, searchField: val })
