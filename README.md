@@ -1,4 +1,4 @@
-![Size](https://github-size-badge.herokuapp.com/ryanbahan/learnable.svg)
+![Size](https://github-size-badge.herokuapp.com/ryanbahan/pokedex.svg)
 
 **[View the live deploy](https://pokedex.ryanbahan.vercel.app/)**
 
