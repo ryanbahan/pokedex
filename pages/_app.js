@@ -3,6 +3,7 @@ import SearchFilterProvider from '../src/contexts/searchFilterContext'
 import { ThemeProvider } from 'styled-components'
 import GlobalStyles from '../src/styles/globalStyles'
 import theme from '../src/styles/theme'
+import App from 'next/app'
 
 function MyApp({ Component, pageProps }) {
     return (
@@ -15,6 +16,13 @@ function MyApp({ Component, pageProps }) {
             </SearchFilterProvider>
         </PokemonProvider>
     )
+}
+
+MyApp.getInitialProps = async (appContext) => {
+  // calls page's `getInitialProps` and fills `appProps.pageProps`
+  const appProps = await App.getInitialProps(appContext);
+
+  return { ...appProps }
 }
 
 export default MyApp
