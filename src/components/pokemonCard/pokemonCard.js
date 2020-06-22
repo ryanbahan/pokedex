@@ -20,40 +20,40 @@ const PokemonCard = ({
     )
 }
 
-const Num = styled.span`
-    background: ${({ theme }) => theme.colors.primary};
-    color: #fff;
-    border-top-left-radius: ${({ theme }) => theme.styles.borderRadius};
-    border-bottom-right-radius: ${({ theme }) => theme.styles.borderRadius};
-    position: absolute;
-    padding: ${({ theme }) => theme.spacers.xxs};
-    top: 0;
-    left: 0;
-`
-
 const Name = styled.h2`
     font-weight: 500;
     margin: ${({ theme }) => theme.spacers.xs};
 `
 
+const Num = styled.span`
+    background: ${({ theme }) => theme.colors.primary};
+    border-bottom-right-radius: ${({ theme }) => theme.styles.borderRadius};
+    border-top-left-radius: ${({ theme }) => theme.styles.borderRadius};
+    color: #fff;
+    padding: ${({ theme }) => theme.spacers.xxs};
+    position: absolute;
+    top: 0;
+    left: 0;
+`
+
+const P = styled.p`
+    font-style: italic;
+    max-width: 80%;
+    text-align: center;
+`
+
 const Section = styled.section`
+    background: ${({ theme }) => theme.colors.white};
     border: solid 1px ${({ theme }) => theme.colors.grayLighter};
     border-radius: ${({ theme }) => theme.styles.borderRadius};
-    background: ${({ theme }) => theme.colors.white};
     box-shadow: ${({ theme }) => theme.styles.boxShadow};
-    padding: ${({ theme }) => theme.spacers.xs};
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
+    padding: ${({ theme }) => theme.spacers.xs};
     position: relative;
-`
-
-const P = styled.p`
-    text-align: center;
-    max-width: 80%;
-    font-style: italic;
 `
 
 export default PokemonCard

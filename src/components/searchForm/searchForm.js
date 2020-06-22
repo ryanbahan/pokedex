@@ -29,22 +29,21 @@ const SearchForm = () => {
     )
 }
 
-const Input = styled.input`
-    font-size: 1.25rem;
-    padding: 0.25rem;
-    width: 50%;
-    min-width: 15rem;
-`
-
 const Button = styled.button`
+    background: ${({ theme }) => theme.colors.secondary};
+    border: solid 0.5px ${({ theme }) => theme.colors.grayLight};
+    border-radius: ${({ theme }) => theme.styles.borderRadius};
+    color: ${({ theme }) => theme.colors.white};
+    cursor: pointer;
     font-size: 1.25rem;
     margin-left: 0.5rem;
-    cursor: pointer;
-    background: ${({ theme }) => theme.colors.secondary};
-    color: ${({ theme }) => theme.colors.white};
-    border-radius: ${({ theme }) => theme.styles.borderRadius};
-    border: solid 0.5px ${({ theme }) => theme.colors.grayLight};
     padding: ${({ theme }) => theme.spacers.xxs} ${({ theme }) => theme.spacers.xs};
+`
+
+const FiltersContainer = styled.div`
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
 `
 
 const Form = styled.form`
@@ -55,10 +54,11 @@ const Form = styled.form`
     flex-wrap: wrap;
 `
 
-const FiltersContainer = styled.div`
-    flex-grow: 1;
-    display: flex;
-    justify-content: flex-end;
+const Input = styled.input`
+    font-size: 1.25rem;
+    padding: 0.25rem;
+    width: 50%;
+    min-width: 15rem;
 `
 
 export default SearchForm

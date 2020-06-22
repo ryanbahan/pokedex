@@ -94,6 +94,7 @@ const Card = styled.section`
     border-radius: ${({ theme }) => theme.styles.borderRadius};
     background: ${({ theme }) => theme.colors.white};
     box-shadow: ${({ theme }) => theme.styles.boxShadow};
+    min-height: 30rem;
 `
 
 const Button = styled.button`
