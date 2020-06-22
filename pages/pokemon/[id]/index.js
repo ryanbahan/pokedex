@@ -9,6 +9,7 @@ import { arrayToString } from '../../../src/utils'
 const Pokemon = () => {
     const router = useRouter()
     const { id } = router.query
+    
     const PokemonStore = useContext(PokemonContext)
     const pokemon = PokemonStore.state.pokemon.find(p => p.num === id)
 
@@ -37,10 +38,10 @@ const Pokemon = () => {
                     <Num>{pokemon.num}</Num>
                     <img src={pokemon.img} />
                     <Name>{pokemon.name}</Name>
-                    <P>{arrayToString(pokemon.type)}</P>
-                    <P>weaknesses: {arrayToString(pokemon.weaknesses)}</P>
-                    <P>height: {pokemon.height}</P>
-                    <P>weight: {pokemon.weight}</P>
+                    <P><Span>type:</Span> {arrayToString(pokemon.type)}</P>
+                    <P><Span>weaknesses:</Span> {arrayToString(pokemon.weaknesses)}</P>
+                    <P><Span>height:</Span> {pokemon.height}</P>
+                    <P><Span>weight:</Span> {pokemon.weight}</P>
                     <Evolutions>other evolutions:</Evolutions>
                     {pokemon.prev_evolution && getLinks(pokemon.prev_evolution)}
                     {pokemon.next_evolution && getLinks(pokemon.next_evolution)}
@@ -52,26 +53,49 @@ const Pokemon = () => {
     }
 }
 
+const Button = styled.button`
+    background: ${({ theme }) => theme.colors.secondary};
+    border: solid 0.5px ${({ theme }) => theme.colors.grayLight};
+    border-radius: ${({ theme }) => theme.styles.borderRadius};
+    color: ${({ theme }) => theme.colors.white};
+    cursor: pointer;
+    font-size: 1.25rem;
+    margin: 0.25rem 0;
+    padding: ${({ theme }) => theme.spacers.xxs} ${({ theme }) => theme.spacers.xs};
+    width: 15rem;
+`
+
 const Container = styled.div`
+    background: ${({ theme }) => theme.colors.grayLightest};
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
     width: 100vw;
+`
+
+const Card = styled.section`
+    background: ${({ theme }) => theme.colors.white};
+    border: solid 1px ${({ theme }) => theme.colors.grayLighter};
+    border-radius: ${({ theme }) => theme.styles.borderRadius};
+    box-shadow: ${({ theme }) => theme.styles.boxShadow};
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background: ${({ theme }) => theme.colors.grayLightest};
+    width: 35vw;
+    min-width: 20rem;
+    padding: 2.5rem;
+    position: relative;
+`
+
+const Evolutions = styled.h3`
+    margin: 0.75rem 0;
+    font-weight: 500;
 `
 
 const Name = styled.h2`
     font-weight: 500;
     margin: ${({ theme }) => theme.spacers.xs};
-`
-
-const P = styled.p`
-    margin: 0.25rem 0;
-`
-
-const Evolutions = styled.h3`
-    margin: 0.75rem 0;
 `
 
 const Num = styled.span`
@@ -86,31 +110,14 @@ const Num = styled.span`
     font-size: 1.5rem;
 `
 
-const Card = styled.section`
-    width: 35vw;
-    height: 70vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    padding: 2.5rem;
-    border: solid 1px ${({ theme }) => theme.colors.grayLighter};
-    border-radius: ${({ theme }) => theme.styles.borderRadius};
-    background: ${({ theme }) => theme.colors.white};
-    box-shadow: ${({ theme }) => theme.styles.boxShadow};
-    min-height: 30rem;
+const P = styled.p`
+    font-weight: 600;
+    margin: 0.75rem 0;
 `
 
-const Button = styled.button`
-    font-size: 1.25rem;
-    width: 15rem;
-    cursor: pointer;
-    margin: 0.25rem 0;
-    background: ${({ theme }) => theme.colors.secondary};
-    color: ${({ theme }) => theme.colors.white};
-    border-radius: ${({ theme }) => theme.styles.borderRadius};
-    border: solid 0.5px ${({ theme }) => theme.colors.grayLight};
-    padding: ${({ theme }) => theme.spacers.xxs} ${({ theme }) => theme.spacers.xs};
+const Span = styled.span`
+    font-style: italic;
+    font-weight: 400;
 `
 
 export default Pokemon
