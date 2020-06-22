@@ -1,6 +1,6 @@
 ![Size](https://github-size-badge.herokuapp.com/ryanbahan/learnable.svg)
 
-[View the live deploy:](https://pokedex-ten-gold.vercel.app)
+###[View the live deploy](https://pokedex-ten-gold.vercel.app)
 
 ## Getting Started
 
