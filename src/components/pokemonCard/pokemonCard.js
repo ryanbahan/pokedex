@@ -53,6 +53,7 @@ const Section = styled.section`
 const P = styled.p`
     text-align: center;
     max-width: 80%;
+    font-style: italic;
 `
 
 export default PokemonCard
