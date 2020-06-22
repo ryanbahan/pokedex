@@ -28,6 +28,10 @@ const SearchFilterProvider = ({ children }) => {
         }
     }
 
+    const clearFilters = () => {
+        setState({...state, filters: {type: [], weaknesses: []}})
+    }
+
     return (
         <SearchFilterContext.Provider
             value={{
@@ -35,6 +39,7 @@ const SearchFilterProvider = ({ children }) => {
                 updateText,
                 updateFilters,
                 checkIfFiltered,
+                clearFilters,
             }}
         >
             {children}

@@ -23,7 +23,7 @@ const SearchForm = () => {
             <FiltersContainer>
                 <Filter title={"type"} items={getFilterItems(pokemon, "type")} />
                 <Filter title={"weaknesses"} items={getFilterItems(pokemon, "weaknesses")} />
-                <Button type="button">clear filters</Button>
+                <Button type="button" onClick={SearchFilterStore.clearFilters}>clear filters</Button>
             </FiltersContainer>
         </Form>
     )
