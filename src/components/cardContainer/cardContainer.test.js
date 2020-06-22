@@ -39,13 +39,11 @@ test('it fetches pokemon data to display', async () => {
 test('it displays the appropriate pokemon content', async () => {
     renderPlaylistsContainer()
 
-    const bulbasaur = await waitFor(() => screen.getByText('name: Bulbasaur')) 
-    const bulbasaurNum = screen.getByText('number: 001')
-    const bulbasaurType = screen.getAllByText('type: Grass, Poison')[0]
-    const bulbasaurWeaknesses = screen.getAllByText('weaknesses: Fire, Ice, Flying, Psychic')[0]
+    const bulbasaur = await waitFor(() => screen.getByText('Bulbasaur')) 
+    const bulbasaurNum = screen.getByText('001')
+    const bulbasaurType = screen.getAllByText('Grass, Poison')[0]
 
     expect(bulbasaur).toBeInTheDocument()
     expect(bulbasaurNum).toBeInTheDocument()
     expect(bulbasaurType).toBeInTheDocument()
-    expect(bulbasaurWeaknesses).toBeInTheDocument()
 })

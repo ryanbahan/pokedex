@@ -8,6 +8,10 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
   }
 
+  body {
+    background: ${({ theme }) => theme.colors.grayLightest};
+  }
+
   body,
   html {
     height: 100%;

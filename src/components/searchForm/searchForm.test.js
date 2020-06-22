@@ -5,6 +5,8 @@ import PokemonProvider from '../../contexts/pokemonContext'
 import SearchFilterProvider from '../../contexts/searchFilterContext'
 import SearchForm from './searchForm'
 import { data } from '../../testData'
+import { ThemeProvider } from 'styled-components'
+import theme from '../../styles/theme'
 
 global.fetch = jest.fn(() =>
     Promise.resolve({
@@ -18,7 +20,9 @@ function renderPlaylistsContainer() {
     const utils = render(
         <PokemonProvider>
             <SearchFilterProvider>
-                <SearchForm />
+                <ThemeProvider theme={theme}>
+                    <SearchForm />
+                </ThemeProvider>
             </SearchFilterProvider>
         </PokemonProvider>
     )
@@ -33,8 +37,8 @@ test('it displays the appropriate content', async () => {
     await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1))
 
     const clearFiltersBtn = screen.getByText("clear filters")
-    const weaknessesBtn = screen.getByText("weaknesses▼")
-    const typeBtn = screen.getByText("type▼")
+    const weaknessesBtn = screen.getByText("weaknesses")
+    const typeBtn = screen.getByText("type")
     const input = screen.getByPlaceholderText("Search by name...")
 
     expect(clearFiltersBtn).toBeInTheDocument()

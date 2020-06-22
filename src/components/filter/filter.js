@@ -10,7 +10,7 @@ const Filter = ({ title, items }) => {
     const renderListItems = (items) => {
         return items.map(item => (
             <DropdownItem key={item}>
-                <input
+                <Input
                     type="checkbox"
                     onClick={() => updateFilters(item, title)}
                     defaultChecked={checkIfFiltered(item, title)}
@@ -37,7 +37,7 @@ const Filter = ({ title, items }) => {
                 type="button"
                 onClick={() => toggleDropdown(!dropdown)}
             >
-                {title + "▼"}
+                { title }
             </Button>
             {dropdown && displayList(items)}
         </DropdownContainer>
@@ -48,6 +48,15 @@ const Button = styled.button`
     font-size: 1.25rem;
     margin-left: 0.5rem;
     cursor: pointer;
+    background: ${({ theme }) => theme.colors.secondary};
+    color: ${({ theme }) => theme.colors.white};
+    border-radius: ${({ theme }) => theme.styles.borderRadius};
+    border: solid 0.5px ${({ theme }) => theme.colors.grayLight};
+    padding: ${({ theme }) => theme.spacers.xxs} ${({ theme }) => theme.spacers.xs};
+`
+
+const Input = styled.input`
+    margin: ${({ theme }) => theme.spacers.xxs};
 `
 
 const DropdownContainer = styled.section`
@@ -66,9 +75,12 @@ const Dropdown = styled.div`
     grid-template-rows: 1fr 1fr 1fr;
     position: absolute;
     background-color: #fff;
-    border: solid 0.5px rgba(0,0,0,0.25);
-    border-radius: 0.25rem;
+    border: solid 1px ${({ theme }) => theme.colors.grayLighter};
+    border-radius: ${({ theme }) => theme.styles.borderRadius};
+    background: ${({ theme }) => theme.colors.white};
+    box-shadow: ${({ theme }) => theme.styles.boxShadow};
     padding: 0.5rem;
+    z-index: 2;
 `
 
 export default Filter

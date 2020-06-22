@@ -1,8 +1,9 @@
 export default {
     colors: {
-        primary: '#ff2768',
-        secondary: '#05e0e9',
+        primary: '#8e44ad',
+        secondary: '#2c3e50',
         black: '#000',
+        grayLightest: '#f9f9f9',
         grayLighter: '#eee',
         grayLight: '#ccc',
         gray: '#999',
@@ -47,6 +48,6 @@ export default {
                 0 4px 8px rgba(0,0,0,0.02),
                 0 8px 16px rgba(0,0,0,0.01),
                 0 16px 32px rgba(0,0,0,0.02)`,
-        borderRadius: '0.5rem',
+        borderRadius: '0.25rem',
     },
 }

@@ -25,7 +25,7 @@ function renderPlaylistsContainer(title, items) {
 test('it displays the appropriate content', async () => {
     renderPlaylistsContainer("type", getFilterItems(data, "type"))
 
-    const button = screen.getByText('type▼')
+    const button = screen.getByText('type')
     expect(button).toBeInTheDocument()
 
     fireEvent.click(button)

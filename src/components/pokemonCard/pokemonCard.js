@@ -7,28 +7,47 @@ const PokemonCard = ({
     name,
     num,
     type,
-    weaknesses,
 }) => {
     return (
         <Link href={"/pokemon/" + num}>
             <Section>
-                <P>name: {name}</P>
-                <P>number: {num}</P>
+                <Num>{num}</Num>
                 <img src={img} />
-                <P>type: {arrayToString(type)}</P>
-                <P>weaknesses: {arrayToString(weaknesses)}</P>
+                <Name>{name}</Name>
+                <P>{arrayToString(type)}</P>
             </Section>
         </Link>
     )
 }
 
+const Num = styled.span`
+    background: ${({ theme }) => theme.colors.primary};
+    color: #fff;
+    border-top-left-radius: ${({ theme }) => theme.styles.borderRadius};
+    border-bottom-right-radius: ${({ theme }) => theme.styles.borderRadius};
+    position: absolute;
+    padding: ${({ theme }) => theme.spacers.xxs};
+    top: 0;
+    left: 0;
+`
+
+const Name = styled.h2`
+    font-weight: 500;
+    margin: ${({ theme }) => theme.spacers.xs};
+`
+
 const Section = styled.section`
-    border: solid 1px black;
+    border: solid 1px ${({ theme }) => theme.colors.grayLighter};
+    border-radius: ${({ theme }) => theme.styles.borderRadius};
+    background: ${({ theme }) => theme.colors.white};
+    box-shadow: ${({ theme }) => theme.styles.boxShadow};
+    padding: ${({ theme }) => theme.spacers.xs};
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     cursor: pointer;
+    position: relative;
 `
 
 const P = styled.p`
