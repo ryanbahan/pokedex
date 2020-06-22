@@ -24,9 +24,12 @@ const Filter = ({ title, items }) => {
         const listItems = renderListItems(items)
 
         return (
-            <Dropdown>
-                {listItems} 
-            </Dropdown>
+            <>
+                <Overlay onClick={() => toggleDropdown(false)} />
+                    <Dropdown>
+                        {listItems} 
+                    </Dropdown>
+            </>
         )
     }
 
@@ -84,6 +87,15 @@ const DropdownItem = styled.div`
 
 const Input = styled.input`
     margin: ${({ theme }) => theme.spacers.xxs};
+`
+
+const Overlay = styled.div`
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
 `
 
 export default Filter
