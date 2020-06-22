@@ -1,5 +1,5 @@
 import React from 'react';
-import { cleanup, render, screen, waitFor } from '@testing-library/react';
+import { cleanup, render, screen, waitFor, act } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'
 import PokemonProvider from '../../contexts/pokemonContext'
 import SearchFilterProvider from '../../contexts/searchFilterContext'
@@ -26,14 +26,11 @@ function renderPlaylistsContainer() {
     return { ...utils }
 }
 
-test('it fetches pokemon data to display', async () => {
-    renderPlaylistsContainer()
-
-    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1))
-})
-
 test('it displays the appropriate content', async () => {
     renderPlaylistsContainer()
+
+    // this prevents a console warning because context has been updated
+    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(1))
 
     const clearFiltersBtn = screen.getByText("clear filters")
     const weaknessesBtn = screen.getByText("weaknesses▼")
