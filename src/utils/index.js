@@ -8,6 +8,7 @@ export const arrayToString = (arr) => {
 
 export const filterPokemon = (searchField, filters, pokemon) => {
     const filteredByText = filterByText(searchField, pokemon)
+    const filteredByType = filterByValues(filters.Type, filteredByText)
 
     return filteredByText
 }
@@ -27,4 +28,8 @@ const filterByText = (searchField, pokemon) => {
             p.name.match(query)
         )
     })
+}
+
+const filterByValues = (values, pokemon) => {
+    // console.log(values)
 }

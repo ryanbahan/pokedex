@@ -5,14 +5,15 @@ import styled from 'styled-components'
 const Filter = ({ title, items }) => {
     const [ dropdown, toggleDropdown ] = useState(false)
     const SearchFilterStore = useContext(SearchFilterContext)
+    const { updateFilters, checkIfFiltered } = SearchFilterStore
 
     const renderListItems = (items) => {
         return items.map(item => (
             <DropdownItem key={item}>
                 <input
                     type="checkbox"
-                    onClick={() => SearchFilterStore.updateFilters(item, title)}
-                    defaultChecked={SearchFilterStore.checkIfFiltered(item, title)}
+                    onClick={() => updateFilters(item, title)}
+                    defaultChecked={checkIfFiltered(item, title)}
                 />
                 <p id={item}>{item}</p>
             </DropdownItem>

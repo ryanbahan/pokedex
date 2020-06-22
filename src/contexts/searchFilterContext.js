@@ -11,13 +11,12 @@ const SearchFilterProvider = ({ children }) => {
 
     const updateFilters = (val, title) => {
         if (state.filters[title].find(filter => filter === val)) {
-            const updatedFilters = state.filters[title].filter(item => item !== val)
-            setState({...state, filters: updatedFilters})
+            const updatedFilter = state.filters[title].filter(item => item !== val)
+            const filters = {...state.filters, [title]: updatedFilter}
+            setState({...state, filters: filters})
         } else {
-            setState({
-                ...state, 
-                filters: {...state.filters, [title]: [...state.filters[title], val]}
-            })
+            const filters = {...state.filters, [title]: [...state.filters[title], val]}
+            setState({...state, filters: filters })
         }
     }
 
