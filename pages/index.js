@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <Container>
       <Head>
-        <title>Create Next App</title>
+        <title>Pokedex</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <SearchForm />

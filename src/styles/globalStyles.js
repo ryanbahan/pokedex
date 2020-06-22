@@ -4,6 +4,8 @@ const GlobalStyles = createGlobalStyle`
   * {
     box-sizing: border-box;
     font-family: sans-serif;
+    margin: 0;
+    padding: 0;
   }
 
   body,

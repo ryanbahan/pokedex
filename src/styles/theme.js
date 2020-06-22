@@ -47,6 +47,6 @@ export default {
                 0 4px 8px rgba(0,0,0,0.02),
                 0 8px 16px rgba(0,0,0,0.01),
                 0 16px 32px rgba(0,0,0,0.02)`,
-        borderRadius: '0.6rem',
+        borderRadius: '0.5rem',
     },
 }

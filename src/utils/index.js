@@ -4,36 +4,33 @@ export const arrayToString = (arr) => {
     } else {
         return arr.join(', ')
     }
-} 
-
-export const getFilterItems = (data, key) => {
-    return data.reduce((list, pokemon) => {
-        list = list.concat(pokemon[key])
-        return [...new Set(list)]
-    }, [])
 }
 
 export const filterPokemon = (searchField, filterObj, allPokemon) => {
-    return allPokemon.reduce((list, pokemon) => {
-        const hasText = filterByText(searchField, pokemon)
-        const hasType = filterByValue(filterObj.type, pokemon.type)
-        const hasWeaknesses = filterByValue(filterObj.weaknesses, pokemon.weaknesses)
+    return allPokemon.reduce((arr, pokemon) => {
+        const hasText = filterByText(searchField, pokemon, "name")
+        const hasType = filterByValues(filterObj.type, pokemon.type)
+        const hasWeaknesses = filterByValues(filterObj.weaknesses, pokemon.weaknesses)
 
         if (hasText && hasType && hasWeaknesses) {
-            list.push(pokemon)
+            arr.push(pokemon)
         }
 
-        return list
+        return arr
     }, [])
 }
 
-const filterByText = (searchField, pokemon) => {
-    let query = new RegExp(searchField, "gi")
+const filterByText = (searchText, data, key) => {
+    let query = new RegExp(searchText, "gi")
 
-    return pokemon.name.match(query)
+    if (key) {
+        return data[key].match(query)
+    } else {
+        return data.match(query)
+    }
 }
 
-const filterByValue = (filters, types) => {
+const filterByValues = (filters, types) => {
     let hasValues = true
 
     filters.forEach(filter => {
@@ -43,4 +40,11 @@ const filterByValue = (filters, types) => {
     })
 
     return filters.length === 0 ? true : hasValues
+}
+
+export const getFilterItems = (data, key) => {
+    return data.reduce((list, pokemon) => {
+        list = list.concat(pokemon[key])
+        return [...new Set(list)]
+    }, [])
 }

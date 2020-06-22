@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 import { useContext } from 'react'
 import Filter from '../filter/filter'
-import { getFilterItems } from '../../utils'
 import { SearchFilterContext } from '../../contexts/searchFilterContext'
 import { PokemonContext } from '../../contexts/pokemonContext'
+import { getFilterItems } from '../../utils'
 
 const SearchForm = () => {
     const SearchFilterStore = useContext(SearchFilterContext)
