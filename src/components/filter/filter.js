@@ -1,16 +1,18 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
+import { SearchFilterContext } from '../../contexts/searchFilterContext'
 import styled from 'styled-components'
 
 const Filter = ({ title, items }) => {
     const [ dropdown, toggleDropdown ] = useState(false)
+    const SearchFilterStore = useContext(SearchFilterContext)
 
     const renderListItems = (items) => {
         return items.map(item => (
             <DropdownItem key={item}>
                 <input
                     type="checkbox"
-                    onClick={""}
-                    defaultChecked={""}
+                    onClick={() => SearchFilterStore.updateFilters(item, title)}
+                    defaultChecked={SearchFilterStore.checkIfFiltered(item, title)}
                 />
                 <p id={item}>{item}</p>
             </DropdownItem>

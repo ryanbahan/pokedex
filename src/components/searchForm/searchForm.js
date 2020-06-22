@@ -17,7 +17,7 @@ const SearchForm = () => {
             <Input
                 type="text"
                 value={ searchField }
-                onChange={(e) => SearchFilterStore.update({ searchField: e.target.value })}
+                onChange={(e) => SearchFilterStore.updateText(e.target.value)}
                 placeholder="Search by name..."
             />
             <FiltersContainer>

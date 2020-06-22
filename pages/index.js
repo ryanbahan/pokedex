@@ -17,5 +17,5 @@ export default function Home() {
 }
 
 const Container = styled.div`
-  margin: 0 15%;
+  margin: 2.5% 15%;
 `
