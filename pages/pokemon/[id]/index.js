@@ -15,7 +15,7 @@ const Pokemon = () => {
     const getLinks = (items) => {
         return items.map(item => (
             <Link 
-                href={"/" + item.num} 
+                href={"/pokemon?uri=" + item.num} 
                 as={"/pokemon/" + item.num}
                 key={item.num}
             >

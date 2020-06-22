@@ -9,7 +9,7 @@ const PokemonCard = ({
     type,
 }) => {
     return (
-        <Link href={"/" + num} as={"/pokemon/" + num}>
+        <Link href={"/pokemon?uri=" + num} as={"/pokemon/" + num}>
             <Section>
                 <Num>{num}</Num>
                 <img src={img} />
