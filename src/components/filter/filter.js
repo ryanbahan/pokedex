@@ -40,7 +40,7 @@ const Filter = ({ title, items }) => {
                 type="button"
                 onClick={() => toggleDropdown(!dropdown)}
             >
-                { title }
+                {title}<Span>▼</Span>
             </Button>
             {dropdown && displayList(items)}
         </DropdownContainer>
@@ -53,8 +53,11 @@ const Button = styled.button`
     border-radius: ${({ theme }) => theme.styles.borderRadius};
     color: ${({ theme }) => theme.colors.white};
     cursor: pointer;
-    font-size: 1.25rem;
+    font-size: 1rem;
+    text-transform: capitalize;
+    font-weight: 400;
     margin-left: 0.5rem;
+    height: 2.5rem;
     padding: ${({ theme }) => theme.spacers.xxs} ${({ theme }) => theme.spacers.xs};
 
     @media (max-width: 650px) {
@@ -96,6 +99,11 @@ const Overlay = styled.div`
     top: 0;
     left: 0;
     z-index: 2;
+`
+
+const Span = styled.span`
+    font-size: 0.5rem;
+    padding-left: 0.5rem;
 `
 
 export default Filter

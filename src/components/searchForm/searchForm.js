@@ -30,13 +30,14 @@ const SearchForm = () => {
 }
 
 const Button = styled.button`
-    background: ${({ theme }) => theme.colors.secondary};
     border: solid 0.5px ${({ theme }) => theme.colors.grayLight};
     border-radius: ${({ theme }) => theme.styles.borderRadius};
-    color: ${({ theme }) => theme.colors.white};
     cursor: pointer;
-    font-size: 1.25rem;
+    font-size: 1rem;
+    text-transform: capitalize;
+    font-weight: 400;
     margin-left: 0.5rem;
+    height: 2.5rem;
     padding: ${({ theme }) => theme.spacers.xxs} ${({ theme }) => theme.spacers.xs};
 
     @media (max-width: 650px) {
@@ -68,8 +69,8 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
-    font-size: 1.25rem;
-    padding: 0.25rem;
+    font-size: 1rem;
+    padding: 0.5rem;
     width: 50%;
     min-width: 15rem;
 
