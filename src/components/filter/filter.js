@@ -53,6 +53,10 @@ const Button = styled.button`
     font-size: 1.25rem;
     margin-left: 0.5rem;
     padding: ${({ theme }) => theme.spacers.xxs} ${({ theme }) => theme.spacers.xs};
+
+    @media (max-width: 650px) {
+        margin-left: 0;
+    }
 `
 
 const Dropdown = styled.div`

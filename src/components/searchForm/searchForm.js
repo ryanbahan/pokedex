@@ -38,12 +38,25 @@ const Button = styled.button`
     font-size: 1.25rem;
     margin-left: 0.5rem;
     padding: ${({ theme }) => theme.spacers.xxs} ${({ theme }) => theme.spacers.xs};
+
+    @media (max-width: 650px) {
+        margin-left: 0;
+    }
 `
 
 const FiltersContainer = styled.div`
     display: flex;
     flex-grow: 1;
     justify-content: flex-end;
+
+    @media (max-width: 1100px) {
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+
+    @media (max-width: 650px) {
+        justify-content: space-between;
+    }
 `
 
 const Form = styled.form`
@@ -59,6 +72,10 @@ const Input = styled.input`
     padding: 0.25rem;
     width: 50%;
     min-width: 15rem;
+
+    @media (max-width: 1100px) {
+        width: 100%;
+    }
 `
 
 export default SearchForm
