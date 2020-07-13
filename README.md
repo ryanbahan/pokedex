@@ -2,6 +2,9 @@
 
 **[View the live deploy](https://pokedex.ryanbahan.vercel.app/)**
 
+<img width="1259" alt="Screen Shot 2020-07-13 at 2 14 00 PM" src="https://user-images.githubusercontent.com/54119863/87349296-4e7bad00-c513-11ea-9fcc-8e94edb088d4.png">
+
+
 ## Getting Started
 
 ```bash
@@ -10,13 +13,3 @@ npm run dev
 ```
 
 Open [http://localhost:8080](http://localhost:8080) with your browser to see the result.
-
-## Developer notes
-
-- I'm showing 'weaknesses' on the details page instead of the index page with all cards. This saves room and makes the UI cleaner, while still utilizing and presenting the data
-- Bootstraped with React and Next.js for routing, small bundle size, link preloading, and SSR capabilities
-- Utilizing styled components to create a consistent theme
-- Utilizing Context API + Hooks for state management
-- Custom babel/app config to support rendering all CSS on the server (no FOUC)
-- There's a console error in prod deploy related to a known Next.js bug, which I'm still working on fixing. It doesn't affect the app performance at all. [Link to documented bug](https://spectrum.chat/next-js/general/next-static-pages-js-404-not-found-build-issue~de17fd85-fd62-47e2-a324-93abd35f6837?m=MTU1Mzk0MjY4NjIzMQ==)
-- Given more time, I'd add a loading state, error handling, and asset caching to reduce the 'flashes' when switching between pages. I'd also set the content min-widths/widths on all containers so that nothing changes size at all once assets are loaded in (this is minor, but noticeable on the search form and sometimes the cards).
